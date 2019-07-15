@@ -12,8 +12,10 @@
 The script folder contains all the scripts that are needed to automatically build (and run) the project with cmake
 ``` bash
 >> cd scripts
-# build project and create executable to folder: dist/BUILD_TYPE
+
+# Build project with specified build type (default=debug) and create executable to folder: dist/BUILD_TYPE
 >> ./build.sh --build_type release
+
 # cd to executable and run it
 cd ../dist/release
 ./CppStarter
