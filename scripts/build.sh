@@ -29,22 +29,22 @@ CONFIG="debug"
 #######################
 ## PARAMETER PARSING ##
 #######################
-while :
+for i in "$@"
 do
-    case "$1" in
-        -bt | --build_type)
-            if [ $# -ne 0 ]; then
-                CONFIG="$2"
-            fi
-            shift 2
-            ;;
-        "")
-            break
-            ;;
-        *)
-            echo -e "\033[33mWARNING: Argument $1 is unkown\033[0m"
-            shift 2 
-    esac
+case $i in
+    -bt=* | --build_type=*)
+        if [ $# -ne 0 ]; then
+            CONFIG="${i#*=}"
+        fi
+        shift 2
+        ;;
+    "")
+        break
+        ;;
+    *)
+        echo -e "\033[33mWARNING: Argument $1 is unkown\033[0m"
+        shift 2
+esac
 done
 
 ############
