@@ -1,5 +1,7 @@
 # C++ Starter Project for Linux using CMake
 
+https://medium.com/@johannesdobler/cross-platform-c-dev-environment-part-1-basic-setup-get-it-building-bbd0883d0e13
+
 ## Setup
 ``` bash
 # Run these commands to install cmake and compiler (g++)
