@@ -1,6 +1,10 @@
 # C++ Starter Project for Linux using CMake
 
-https://medium.com/@johannesdobler/cross-platform-c-dev-environment-part-1-basic-setup-get-it-building-bbd0883d0e13
+Code for:</br>
+[Cross-Platform C++ dev environment— Part 1: Basic Setup, get it building](https://medium.com/@johannesdobler/cross-platform-c-dev-environment-part-1-basic-setup-get-it-building-bbd0883d0e13)</br>
+[Cross-Platform C++ dev environment— Part 2: Visual Studio Code to debug](https://medium.com/@johannesdobler/cross-platform-c-dev-environment-part-2-visual-studio-code-to-debug-e2628ed47e51)</br>
+
+
 
 ## Setup
 ``` bash
