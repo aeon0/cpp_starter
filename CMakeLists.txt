@@ -1,7 +1,12 @@
 cmake_minimum_required (VERSION 3.5)
 project(CppStarter)
 
-set(INSTALL_DIR "${CMAKE_CURRENT_SOURCE_DIR}/dist/${CMAKE_BUILD_TYPE}")
+# we want to choice our own prefix to prevent naming issues
+set(CMAKE_STATIC_LIBRARY_PREFIX "")
+
+set(INSTALL_BIN_DIR "${CMAKE_CURRENT_SOURCE_DIR}/dist/bin/${CMAKE_BUILD_TYPE}")
+set(INSTALL_LIB_DIR "${CMAKE_CURRENT_SOURCE_DIR}/dist/lib/${CMAKE_BUILD_TYPE}")
+set(INSTALL_INCLUDE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/dist/include")
 
 add_subdirectory(externals)
 add_subdirectory(src)
