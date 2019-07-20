@@ -16,7 +16,8 @@ if [[ ( "$1" == "-h" ) || ( "$1" == "--help" ) ]]; then
     echo "  Build the project"
     echo
     echo "  -h, --help           Show this help text"
-    echo "  -bt, --build_type    Can be one of [debug, release]"
+    echo "  --build_type         Can be one of [debug, release], default=debug"
+    echo "  --build_tests        Can be one of [OFF, ON], default=OFF"
     exit 0
 fi
 
@@ -25,6 +26,7 @@ fi
 ###################################
 ROOTDIR=`pwd`
 CONFIG="debug"
+TESTS="OFF"
 
 #######################
 ## PARAMETER PARSING ##
@@ -32,18 +34,24 @@ CONFIG="debug"
 for i in "$@"
 do
 case $i in
-    -bt=* | --build_type=*)
+    --build_type=*)
         if [ $# -ne 0 ]; then
             CONFIG="${i#*=}"
         fi
-        shift 2
+        shift 1
+        ;;
+    --build_tests=*)
+        if [ $# -ne 0 ]; then
+            TESTS="${i#*=}"
+        fi
+        shift 1
         ;;
     "")
         break
         ;;
     *)
         echo -e "\033[33mWARNING: Argument $1 is unkown\033[0m"
-        shift 2
+        shift 1
 esac
 done
 
@@ -54,7 +62,7 @@ BUILDFOLDER=$ROOTDIR/build/$CONFIG
 mkdir -p $BUILDFOLDER
 cd $BUILDFOLDER
 
-cmake -DCMAKE_BUILD_TYPE=$CONFIG $ROOTDIR || exit 1
+cmake -DBUILD_TEST=$TESTS -DCMAKE_BUILD_TYPE=$CONFIG $ROOTDIR || exit 1
 
 make 
 make install
