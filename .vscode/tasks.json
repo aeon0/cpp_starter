@@ -1,0 +1,42 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build (debug)",
+            "type": "shell",
+            "command": "./scripts/build.sh --build_type=debug",
+            "group": "build",
+            "problemMatcher": []  // Prevents VSCode to ask for scanning for errors in the output
+        },
+        {
+            "label": "run (debug)",
+            "type": "shell",
+            "command": "./dist/debug/CppStarter",
+            "group": "build",
+            // Will run build task beforehand
+            "dependsOn": [
+                "build (debug)"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "build (release)",
+            "type": "shell",
+            "command": "./scripts/build.sh --build_type=release",
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "run (release)",
+            "type": "shell",
+            "command": "./dist/release/CppStarter",
+            "group": "build",
+            "dependsOn": [
+                "build (release)"
+            ],
+            "problemMatcher": []
+        }
+    ]
+}
